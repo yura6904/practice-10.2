@@ -48,6 +48,10 @@ export const filterElements = (str, state) => {
     console.log(str)
     let temp = []
     let eqCounter = []
+
+    if (str === '')
+        return {state: state, notFound: false}
+
     for (let i = 0; i < state.length; i++) {
         eqCounter.push(0)
         for (let j = 0; j < str.length; j++) {
@@ -57,8 +61,8 @@ export const filterElements = (str, state) => {
     }
     
     if (Math.max((eqCounter.length) === 0) || (Math.max.apply(null,eqCounter) !== str.length)) {
-        alert('Совпадения не найдены!')
-        return state
+        //alert('Совпадения не найдены!')
+        return {state: state, notFound: true}
     }
     
     for (let i = 0; i < eqCounter.length; i++) {
@@ -71,7 +75,7 @@ export const filterElements = (str, state) => {
             temp.push(state[i])
         }
     }
-    return temp
+    return {state: temp, notFound: false}
 }
 
 const findItemIndex = (el, state) => {

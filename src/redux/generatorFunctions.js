@@ -15,6 +15,7 @@ export const editElementClick = (el, state) => {
   }
 
 export const addElement = (el) => {
+  console.log('gen ' + el)
   return {
     type: ADD_ELEMENT,
     el

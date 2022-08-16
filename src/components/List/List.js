@@ -2,9 +2,9 @@
 function List(props) {
     return (
       <ul className="List">
-        {!props.elements.filteredData ? (
-          props.children(props.elements.state)
-        ) : (props.children(props.elements.filteredData))}
+        {!props.filteredData.length ? (
+          props.children(props.elements)
+        ) : (props.children(props.filteredData))}
       </ul>
     );
   }
